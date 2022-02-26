@@ -1,0 +1,62 @@
+/* CSS Code */
+
+/* main container */
+#main {
+    text-align: center;
+}
+
+h1 {
+    color: red;
+    font-size: 30px;
+}
+
+/* game instructions text */
+#instr {
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-size: 18px;
+}
+
+/* 3*3 Grid */
+#b1, #b2, #b3, #b4, #b5,
+#b6, #b7, #b8, #b9 {
+    width: 70px;
+    height: 50px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border: 1px solid gray;
+    border-radius: 7px;
+    font-size: 24px;
+    text-align: center;
+
+    background-color: white;
+    color: black;
+}
+
+/* Reset Button */
+#button {
+    box-sizing: border-box;
+    width: 80px;
+    height: 35px;
+    border: 1px solid blue;
+    margin: auto;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+    background-color: dodgerblue;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+/* player's turn space */
+#print {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(161, 43, 28);
+    font-size: 25px;
+}
+
+
