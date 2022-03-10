@@ -28,7 +28,7 @@ function getPlayerSymbol(playerId) {
     if (playerId == 1) {
         return 'X';
     } else {
-        return'0'
+        return '0'
     }
 }
 
@@ -63,7 +63,7 @@ function getNextPlayerId() {
 /*  trying new method */
 function printWinRow(i, requiredLength, step) {
     let firstIndex = testArray[i];
-    for (i; i < requiredLength; i = i+step) {        
+    for (i; i < requiredLength; i = i + step) {
 
         while (firstIndex !== testArray[i]) {
             return false;
@@ -75,33 +75,33 @@ function printWinRow(i, requiredLength, step) {
 
 
 function hasPlayerWon(playerId) {
-    
+
     let playerSymbol = getPlayerSymbol(playerId);
-    
+
     // Checking if Player X won or not and after
-	// disable all the other fields
-    if ( (c1.value == playerSymbol) && (c2.value == playerSymbol) && (c3.value == playerSymbol) ) {
+    // disable all the other fields
+    if ((c1.value == playerSymbol) && (c2.value == playerSymbol) && (c3.value == playerSymbol)) {
         return true;
     }
-    else if ( (c4.value == playerSymbol) && (c5.value == playerSymbol) && (c6.value == playerSymbol) ) {
+    else if ((c4.value == playerSymbol) && (c5.value == playerSymbol) && (c6.value == playerSymbol)) {
         return true;
     }
-    else if ( (c7.value == playerSymbol) && (c8.value == playerSymbol) && (c9.value == playerSymbol) ) {
+    else if ((c7.value == playerSymbol) && (c8.value == playerSymbol) && (c9.value == playerSymbol)) {
         return true;
     }
-    else if ( (c1.value == playerSymbol) && (c4.value == playerSymbol) && (c7.value == playerSymbol) ) {
+    else if ((c1.value == playerSymbol) && (c4.value == playerSymbol) && (c7.value == playerSymbol)) {
         return true;
     }
-    else if ( (c2.value == playerSymbol) && (c5.value == playerSymbol) && (c8.value == playerSymbol) ) {
+    else if ((c2.value == playerSymbol) && (c5.value == playerSymbol) && (c8.value == playerSymbol)) {
         return true;
     }
-    else if ( (c3.value == playerSymbol) && (c6.value == playerSymbol) && (c9.value == playerSymbol) ) {
+    else if ((c3.value == playerSymbol) && (c6.value == playerSymbol) && (c9.value == playerSymbol)) {
         return true;
     }
-    else if ( (c1.value == playerSymbol) && (c5.value == playerSymbol) && (c9.value == playerSymbol) ) {
+    else if ((c1.value == playerSymbol) && (c5.value == playerSymbol) && (c9.value == playerSymbol)) {
         return true;
     }
-    else if ( (c3.value == playerSymbol) && (c5.value == playerSymbol) && (c7.value == playerSymbol) ) {
+    else if ((c3.value == playerSymbol) && (c5.value == playerSymbol) && (c7.value == playerSymbol)) {
         return true;
     }
     return false;
@@ -115,13 +115,13 @@ function handleGameOver() {
     for (let cell of cells) {
         cell.disabled = true;
     }
-    
+
     document.getElementById('print')
-        .innerHTML = "Player <b> "+ playerSymbol +" </b> Won!";
+        .innerHTML = "Player <b> " + playerSymbol + " </b> Won!";
     setTimeout(() => {
-        window.alert('Player  '+ playerSymbol +'  Won!');
+        window.alert('Player  ' + playerSymbol + '  Won!');
     }, 20)
-    
+
 }
 
 
@@ -133,25 +133,25 @@ function processGameState() {
     }
 
     // After Player 0 finish,
-	// checking for Tie
-    else if ( isDraw() ) {
-            document.getElementById('print')
-                .innerHTML = "<b>Matched Tie!</b>";
-            setTimeout(() => {
-                window.alert('Matched Tie!'); 
-            }, 20)
-            
-    }  
-    
+    // checking for Tie
+    else if (isDraw()) {
+        document.getElementById('print')
+            .innerHTML = "<b>Matched Tie!</b>";
+        setTimeout(() => {
+            window.alert('Matched Tie!');
+        }, 20)
+
+    }
+
     else {
 
         // Printing result below boxes       
-        const nextPlayerId = getNextPlayerId();                    
+        const nextPlayerId = getNextPlayerId();
         const nextPlayerSymbol = getPlayerSymbol(nextPlayerId);
         document.getElementById('print')
-            .innerHTML = "Player <b>"+ nextPlayerSymbol +"</b> turn";
-        
-    }  
+            .innerHTML = "Player <b>" + nextPlayerSymbol + "</b> turn";
+
+    }
 }
 
 
@@ -175,7 +175,11 @@ function handlePlayerClick(elementId) {
     }
 
     processGameState();
-    
+
     currentPlayerId = getNextPlayerId();
-    
+
+}
+
+module.exports = {
+    getPlayerSymbol
 }
