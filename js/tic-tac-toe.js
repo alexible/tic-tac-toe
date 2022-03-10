@@ -1,3 +1,5 @@
+'use strict';
+
 const c1 = document.getElementById("b1");
 const c2 = document.getElementById("b2");
 const c3 = document.getElementById("b3");
@@ -58,6 +60,20 @@ function getNextPlayerId() {
     }
 }
 
+/*  trying new method */
+function printWinRow(i, requiredLength, step) {
+    let firstIndex = testArray[i];
+    for (i; i < requiredLength; i = i+step) {        
+
+        while (firstIndex !== testArray[i]) {
+            return false;
+        }
+    }
+    return true;
+}
+/*  end of new method */
+
+
 function hasPlayerWon(playerId) {
     
     let playerSymbol = getPlayerSymbol(playerId);
@@ -99,13 +115,12 @@ function handleGameOver() {
     for (let cell of cells) {
         cell.disabled = true;
     }
-
     
     document.getElementById('print')
         .innerHTML = "Player <b> "+ playerSymbol +" </b> Won!";
     setTimeout(() => {
         window.alert('Player  '+ playerSymbol +'  Won!');
-    }, 10)
+    }, 20)
     
 }
 
@@ -121,17 +136,20 @@ function processGameState() {
 	// checking for Tie
     else if ( isDraw() ) {
             document.getElementById('print')
-            .innerHTML = "<b>Matched Tie!</b>";
-            window.alert('Matched Tie!'); 
+                .innerHTML = "<b>Matched Tie!</b>";
+            setTimeout(() => {
+                window.alert('Matched Tie!'); 
+            }, 20)
+            
     }  
     
     else {
 
         // Printing result below boxes       
-        const nextPlayerId = getNextPlayerId();
+        const nextPlayerId = getNextPlayerId();                    
         const nextPlayerSymbol = getPlayerSymbol(nextPlayerId);
         document.getElementById('print')
-        .innerHTML = "Player <b>"+ nextPlayerSymbol +"</b> turn";
+            .innerHTML = "Player <b>"+ nextPlayerSymbol +"</b> turn";
         
     }  
 }
